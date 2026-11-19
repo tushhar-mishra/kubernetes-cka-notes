@@ -294,6 +294,8 @@ What happens to a **PV** when its **PVC is deleted**:
 - Used to wipe the volume with a basic `rm -rf` and make the PV `Available` again.
 - Deprecated because it couldn't do secure erasure or custom cleanup (such as snapshot-based restores); dynamic provisioning replaces it.
 
+> ⚠️ **Corrected** ([C5](#c5)): Recycle is **deprecated, not removed**, and its deprecation has nothing to do with "v1.20". The API still accepts `persistentVolumeReclaimPolicy: Recycle`, but the docs list it as working **only for `nfs` and `hostPath`** volumes. Don't use it; use `Delete` with dynamic provisioning (topic 39), or `Retain` and clean up yourself.
+
 | Policy | Behaviour | Best for | Common in |
 |---|---|---|---|
 | **Delete** | Deletes the PV and the storage | Cloud dynamic provisioning | AWS EBS, GCP PD, Azure Disk |
@@ -605,7 +607,7 @@ This topic was rebuilt from the original CKA course notes. This appendix keeps t
 
 ### Sources
 
-Day 27 (introduction; evolution from in-tree to CSI; in-tree plugins and examples; CSI and its benefits and drivers; hostPath and local special cases; transitioning with in-tree vs CSI PV examples; key takeaways on file/block/object; persistent storage and hostPath; hostPath in kind on Linux vs macOS/Windows; hostPath demo and cross-Pod verification; PVs and PVCs; scope and relationships; 1:1 binding and `claimRef`; additional key points; example scenario; manual provisioning flow; important notes; access modes; block vs file storage; reclaim policies; choosing a policy; binding conditions and tables; the kind/minikube default StorageClass note; PV/PVC demo with Retain), files `Day 27/hostpath.yaml`, `pv.yaml`, `pvc.yaml`, `pod.yaml`. StorageClasses (rest of Day 27) are in topic 39.
+Day 27 (introduction; evolution from in-tree to CSI; in-tree plugins and examples; CSI and its benefits and drivers; hostPath and local special cases; transitioning with in-tree vs CSI PV examples; key takeaways on file/block/object; persistent storage and hostPath; hostPath in kind on Linux vs macOS/Windows; hostPath demo and cross-Pod verification; PVs and PVCs; scope and relationships; 1:1 binding and `claimRef`; additional key points; example scenario; manual provisioning flow; important notes; access modes; block vs file storage; reclaim policies; choosing a policy; binding conditions and tables; the kind/minikube default StorageClass note; PV/PVC demo with Retain), files `Day 27/hostpath.yaml`, `pv.yaml`, `pvc.yaml`, `pod.yaml`. StorageClasses (rest of Day 27) are in topic 39. The same sections reappear verbatim in `Storage-In-Kubernetes-Masterclass/README.md` (a merge of Days 24–28).
 
 ### Corrections to the original notes
 
@@ -618,3 +620,18 @@ Each entry shows what the original said and what's true now. In the topic above,
 <a id="c3"></a>**C3 · Corrected (Day 27).** RWOP was described as "introduced in v1.29". **Now:** it was introduced as alpha in v1.22 and reached **GA (stable) in v1.29**. It's only for **CSI** volumes.
 
 <a id="c4"></a>**C4 · Corrected (Day 27).** Step 3 said "when this Pod is created, Kubernetes will bind the PVC to the appropriate PV… the PVC status should change from Pending to Bound". **Now:** for static PVs without a StorageClass, binding happens **as soon as the PVC is created** (as shown above), before any Pod exists. Only a StorageClass with `volumeBindingMode: WaitForFirstConsumer` delays binding until a Pod is scheduled (topic 39).
+
+<a id="c5"></a>**C5 · Corrected (Day 27 / Storage masterclass).** "**Recycle (Deprecated in Kubernetes v1.20+)** … It was **removed** in favor of dynamic provisioning". **Now:** Recycle is **deprecated but not removed**, and the deprecation isn't tied to v1.20. The API still accepts it, and the Kubernetes docs list it as supported only by `nfs` and `hostPath` volumes. The recommended replacement is dynamic provisioning (`Delete`) or `Retain` with your own cleanup.
+
+### Official references
+
+Official docs for this topic (from the reference list of `Storage-In-Kubernetes-Masterclass`):
+
+- [`hostPath`](https://kubernetes.io/docs/concepts/storage/volumes/#hostpath)
+- [Persistent Volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
+- [PersistentVolumeClaims](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims)
+- [Access modes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes)
+- [Volume mode](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#volume-mode)
+- [Reclaiming (reclaim policy)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#reclaiming)
+- [CSI volumes](https://kubernetes.io/docs/concepts/storage/volumes/#csi)
+- [List of CSI drivers](https://kubernetes-csi.github.io/docs/drivers.html)

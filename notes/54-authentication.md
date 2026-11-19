@@ -429,7 +429,7 @@ This topic was rebuilt from the original CKA course notes. This appendix keeps t
 
 ### Sources
 
-Day 37 (introduction; authentication in Kubernetes; static password file; static token file; ServiceAccount tokens and the token/bearer-token note; client certificates; external identity providers: OIDC, LDAP/Kerberos, webhook, flags, the external-IdP flow; "always the API server"; the start of "who interacts"), Day 34 (granting cluster access to Seema with certificates and RBAC: steps 1–11, optional REST/alternate kubeconfig, conclusion). ServiceAccounts are in topic 55.
+Day 37 (introduction; authentication in Kubernetes; static password file; static token file; ServiceAccount tokens and the token/bearer-token note; client certificates; external identity providers: OIDC, LDAP/Kerberos, webhook, flags, the external-IdP flow; "always the API server"; the start of "who interacts"), Day 34 (granting cluster access to Seema with certificates and RBAC: steps 1–11, optional REST/alternate kubeconfig, conclusion). ServiceAccounts are in topic 55. The same sections reappear in `TLS-In-Kubernetes-Masterclass/README.md` (Days 30–34).
 
 ### Corrections to the original notes
 

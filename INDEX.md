@@ -20,6 +20,8 @@ One learning path, in reading order. Each topic builds on the ones before it. Wh
 
 **Proof nothing was lost:** [COVERAGE.md](COVERAGE.md) maps every original day file, section, image and YAML file to its new home. The original `Day NN/` folders are kept unchanged.
 
+**Masterclass folders:** `Storage-In-Kubernetes-Masterclass` (Days 24–28 → topics 06–09, 34–39) and `TLS-In-Kubernetes-Masterclass` (Days 30–34 → topics 12, 50–54, 57) are fully covered here. Their official doc links were added to the storage topics, and their two wrong claims are corrected in [38](notes/38-persistent-storage-pv-pvc.md#c5) and [53](notes/53-tls-inside-the-cluster.md#c2). The section-by-section map is in [COVERAGE.md](COVERAGE.md#masterclass-folders-storage-and-tls).
+
 ## How to study with these notes
 
 | Your goal | Read | Time |

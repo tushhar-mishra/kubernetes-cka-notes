@@ -268,7 +268,7 @@ This topic was rebuilt from the original CKA course notes. This appendix keeps t
 
 ### Sources
 
-Day 07 (What is a Deployment, Kubernetes architecture, control plane, worker nodes, component lists, control plane vs data plane table), Day 25 (introduction, core vs extended architecture, what is Kubernetes core).
+Day 07 (What is a Deployment, Kubernetes architecture, control plane, worker nodes, component lists, control plane vs data plane table), Day 25 (introduction, core vs extended architecture, what is Kubernetes core). The same sections reappear in `Storage-In-Kubernetes-Masterclass/README.md` (Days 24–28).
 
 ### Corrections to the original notes
 

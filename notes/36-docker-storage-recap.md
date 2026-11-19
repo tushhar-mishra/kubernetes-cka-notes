@@ -313,10 +313,18 @@ This topic was rebuilt from the original CKA course notes. This appendix keeps t
 
 ### Sources
 
-Day 24 (introduction and delta data; storage in Docker; layers in a Dockerfile and the layer table; example layers; inspecting layers; how containers use layers; storage calculation; data loss in writable layers; need for persistent storage; storage drivers; volume drivers; Kubernetes storage vs Docker volumes note; Docker on Linux/macOS/Windows; understanding volumes and benefits; where volumes are stored; the named-volume demo; note for macOS/Windows; types of volumes; conclusion).
+Day 24 (introduction and delta data; storage in Docker; layers in a Dockerfile and the layer table; example layers; inspecting layers; how containers use layers; storage calculation; data loss in writable layers; need for persistent storage; storage drivers; volume drivers; Kubernetes storage vs Docker volumes note; Docker on Linux/macOS/Windows; understanding volumes and benefits; where volumes are stored; the named-volume demo; note for macOS/Windows; types of volumes; conclusion). The same sections reappear verbatim in `Storage-In-Kubernetes-Masterclass/README.md` (a merge of Days 24–28).
 
 ### Corrections to the original notes
 
 Each entry shows what the original said and what's true now. In the topic above, each correction appears as a ✅ **Correct today** line or a ⚠️ **Fix to the original** box, linked to its entry here.
 
 <a id="c1"></a>**C1 · Corrected (Day 24).** the original said that if Container 2 **stops**, its 10 MB of delta data is lost. **Now:** a **stopped** Docker container keeps its writable layer (`docker start` brings it back with the data). The data is lost when the container is **removed** (`docker rm`, `--rm`, or replaced by a new container on redeploy). **In Kubernetes** the effect is what Day 24 describes: when a container **restarts**, the kubelet creates a **new** container with a **fresh** writable layer, so delta data is gone even on a simple crash-restart.
+
+### Official references
+
+Official docs for this topic (from the reference list of `Storage-In-Kubernetes-Masterclass`):
+
+- [Docker storage overview](https://docs.docker.com/storage/)
+- [Docker volumes](https://docs.docker.com/storage/volumes/)
+- [Docker volume plugins (volume drivers)](https://docs.docker.com/engine/extend/legacy_plugins/)

@@ -427,4 +427,10 @@ This topic was rebuilt from the original CKA course notes. This appendix keeps t
 
 ### Sources
 
-Day 28 (why Secrets; what a Secret is; encoding vs encryption distinction and table; Secrets Demo 1: create, encode/decode, Deployment with `secretKeyRef`, verification; alternative: mount as files with `items` notes; Secret best practices; dynamic updates; conclusion), files `Day 28/secret-1.yaml`, `frontend-secret-1.yaml`, `frontend-secret-2.yaml`, `backend-2.yaml`.
+Day 28 (why Secrets; what a Secret is; encoding vs encryption distinction and table; Secrets Demo 1: create, encode/decode, Deployment with `secretKeyRef`, verification; alternative: mount as files with `items` notes; Secret best practices; dynamic updates; conclusion), files `Day 28/secret-1.yaml`, `frontend-secret-1.yaml`, `frontend-secret-2.yaml`, `backend-2.yaml`. The same sections reappear verbatim in `Storage-In-Kubernetes-Masterclass/README.md` (a merge of Days 24–28).
+
+### Official references
+
+Official docs for this topic (from the reference list of `Storage-In-Kubernetes-Masterclass`):
+
+- [Secrets](https://kubernetes.io/docs/concepts/configuration/secret/)

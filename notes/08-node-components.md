@@ -301,7 +301,7 @@ This topic was rebuilt from the original CKA course notes. This appendix keeps t
 
 ### Sources
 
-Day 07 (kubelet, kube-proxy, container runtime), Day 25 (node components, CRI plugin table, CRI responsibilities, Docker/dockershim note).
+Day 07 (kubelet, kube-proxy, container runtime), Day 25 (node components, CRI plugin table, CRI responsibilities, Docker/dockershim note). The same sections reappear in `Storage-In-Kubernetes-Masterclass/README.md` (Days 24–28).
 
 ### Corrections to the original notes
 

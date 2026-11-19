@@ -436,10 +436,18 @@ This topic was rebuilt from the original CKA course notes. This appendix keeps t
 
 ### Sources
 
-Day 26 (introduction, ephemeral storage, emptyDir: what/why, Day 24 writable-layer recap, emptyDir demo and verification, key takeaway; Downward API: what/why, "did you know" on sidecars, env-var demo, files-via-volume demo with symlinks, logs verification; ConfigMaps and Secrets preview; conclusion), files `Day 26/emptyDir.yaml`, `downwardapi-1.yaml`, `downwardapi-2.yaml`.
+Day 26 (introduction, ephemeral storage, emptyDir: what/why, Day 24 writable-layer recap, emptyDir demo and verification, key takeaway; Downward API: what/why, "did you know" on sidecars, env-var demo, files-via-volume demo with symlinks, logs verification; ConfigMaps and Secrets preview; conclusion), files `Day 26/emptyDir.yaml`, `downwardapi-1.yaml`, `downwardapi-2.yaml`. The same sections reappear verbatim in `Storage-In-Kubernetes-Masterclass/README.md` (a merge of Days 24–28).
 
 ### Corrections to the original notes
 
 Each entry shows what the original said and what's true now. In the topic above, each correction appears as a ✅ **Correct today** line or a ⚠️ **Fix to the original** box, linked to its entry here.
 
 <a id="c1"></a>**C1 · Corrected (Day 26).** the original says the symlinks exist "because Kubernetes uses a **projected volume** with the Downward API". **Now:** a `downwardAPI` volume is its own volume type. The `..data` symlink mechanism is the kubelet's shared "atomic writer", used by **all** of `configMap`, `secret`, `downwardAPI` and `projected` volumes (which is why ConfigMap mounts look the same, topic 34). A `projected` volume can *include* Downward API items, but isn't required.
+
+### Official references
+
+Official docs for this topic (from the reference list of `Storage-In-Kubernetes-Masterclass`):
+
+- [Kubernetes volumes](https://kubernetes.io/docs/concepts/storage/volumes/)
+- [`emptyDir`](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir)
+- [Downward API as volume files](https://kubernetes.io/docs/tasks/inject-data-application/downward-api-volume-expose-pod-information/)

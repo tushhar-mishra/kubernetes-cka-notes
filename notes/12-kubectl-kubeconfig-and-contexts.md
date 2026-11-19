@@ -322,7 +322,7 @@ This topic was rebuilt from the original CKA course notes. This appendix keeps t
 
 ### Sources
 
-Day 08 (managing contexts for multiple clusters, scenario, how contexts work, example kubeconfig, leveraging contexts, namespace note), Day 32 (kubeconfig/context basics; the rest is in topic 52).
+Day 08 (managing contexts for multiple clusters, scenario, how contexts work, example kubeconfig, leveraging contexts, namespace note), Day 32 (kubeconfig/context basics; the rest is in topic 52). The same sections reappear in `TLS-In-Kubernetes-Masterclass/README.md` (Days 30–34).
 
 ### Corrections to the original notes
 

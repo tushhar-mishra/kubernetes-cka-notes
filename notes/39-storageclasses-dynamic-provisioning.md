@@ -443,4 +443,11 @@ This topic was rebuilt from the original CKA course notes. This appendix keeps t
 
 ### Sources
 
-Day 27 (StorageClasses and dynamic provisioning: what, why, example gp3/io1 classes, key points on reclaim policy and WaitForFirstConsumer, dynamic provisioning in action with PVC/PV/Pod, key takeaways; StorageClass demo steps 1–5 and takeaways; conclusion), file `Day 27/sc.yaml`.
+Day 27 (StorageClasses and dynamic provisioning: what, why, example gp3/io1 classes, key points on reclaim policy and WaitForFirstConsumer, dynamic provisioning in action with PVC/PV/Pod, key takeaways; StorageClass demo steps 1–5 and takeaways; conclusion), file `Day 27/sc.yaml`. The same sections reappear verbatim in `Storage-In-Kubernetes-Masterclass/README.md` (a merge of Days 24–28).
+
+### Official references
+
+Official docs for this topic (from the reference list of `Storage-In-Kubernetes-Masterclass`):
+
+- [StorageClasses](https://kubernetes.io/docs/concepts/storage/storage-classes/)
+- [Volume binding mode](https://kubernetes.io/docs/concepts/storage/storage-classes/#volume-binding-mode)

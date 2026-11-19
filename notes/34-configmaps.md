@@ -454,4 +454,10 @@ This topic was rebuilt from the original CKA course notes. This appendix keeps t
 
 ### Sources
 
-Day 28 (introduction; why ConfigMaps; what a ConfigMap is; environment variables explained; hard-coded env vars; Demo 1 env vars with imperative creation and imperative vs declarative; Demo 2 mounted file: block scalar, volume mount, directory vs file, `items`, `subPath` with pros/cons, summary; Step 3 NodePort Service; verification incl. kind; ConfigMap best practices; dynamic updates section), files `Day 28/cm-1.yaml`, `cm-2.yaml`, `ev.yaml`, `frontend-cm-1.yaml`, `frontend-cm-2.yaml`. Secrets are in topic 35.
+Day 28 (introduction; why ConfigMaps; what a ConfigMap is; environment variables explained; hard-coded env vars; Demo 1 env vars with imperative creation and imperative vs declarative; Demo 2 mounted file: block scalar, volume mount, directory vs file, `items`, `subPath` with pros/cons, summary; Step 3 NodePort Service; verification incl. kind; ConfigMap best practices; dynamic updates section), files `Day 28/cm-1.yaml`, `cm-2.yaml`, `ev.yaml`, `frontend-cm-1.yaml`, `frontend-cm-2.yaml`. Secrets are in topic 35. The same sections reappear verbatim in `Storage-In-Kubernetes-Masterclass/README.md` (a merge of Days 24–28).
+
+### Official references
+
+Official docs for this topic (from the reference list of `Storage-In-Kubernetes-Masterclass`):
+
+- [ConfigMaps](https://kubernetes.io/docs/concepts/configuration/configmap/)

@@ -427,7 +427,7 @@ This topic was rebuilt from the original CKA course notes. This appendix keeps t
 
 ### Sources
 
-Day 31 (introduction; client and server refresher; PKC in DevOps; `ssh-keygen` and alternatives; `openssl` and alternatives; why "OpenSSL"; key management best practices; key file formats for SSH and TLS; what PKC provides; authentication in SSH (host keys, TOFU, verification methods, changed keys) and client authentication; authentication in TLS; order of authentication; secure key exchange in SSH and TLS (RSA vs ECDHE); types of CAs and comparison table; public CA and PKI; private CA and trusting it per OS; self-signed certificates, uses, warnings and reserved test domains; conclusion).
+Day 31 (introduction; client and server refresher; PKC in DevOps; `ssh-keygen` and alternatives; `openssl` and alternatives; why "OpenSSL"; key management best practices; key file formats for SSH and TLS; what PKC provides; authentication in SSH (host keys, TOFU, verification methods, changed keys) and client authentication; authentication in TLS; order of authentication; secure key exchange in SSH and TLS (RSA vs ECDHE); types of CAs and comparison table; public CA and PKI; private CA and trusting it per OS; self-signed certificates, uses, warnings and reserved test domains; conclusion). The same sections reappear in `TLS-In-Kubernetes-Masterclass/README.md` (Days 30–34).
 
 ### Corrections to the original notes
 

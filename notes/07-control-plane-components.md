@@ -357,4 +357,4 @@ This topic was rebuilt from the original CKA course notes. This appendix keeps t
 
 ### Sources
 
-Day 07 (control-plane component list), Day 25 (control-plane components). Much of this is new depth.
+Day 07 (control-plane component list), Day 25 (control-plane components). Much of this is new depth. The same sections reappear in `Storage-In-Kubernetes-Masterclass/README.md` (Days 24–28).

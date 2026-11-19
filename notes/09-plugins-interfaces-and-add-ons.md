@@ -307,7 +307,7 @@ This topic was rebuilt from the original CKA course notes. This appendix keeps t
 
 ### Sources
 
-Day 25 (introduction, extensions beyond the core, plugins, CRI/CNI/CSI tables and responsibilities, add-ons, third-party extensions, overview of interfaces, why plugin-based, key takeaways, conclusion).
+Day 25 (introduction, extensions beyond the core, plugins, CRI/CNI/CSI tables and responsibilities, add-ons, third-party extensions, overview of interfaces, why plugin-based, key takeaways, conclusion). The same sections reappear verbatim in `Storage-In-Kubernetes-Masterclass/README.md` (a merge of Days 24–28).
 
 ### Corrections to the original notes
 
@@ -316,3 +316,11 @@ Each entry shows what the original said and what's true now. In the topic above,
 <a id="c1"></a>**C1 · Corrected (Day 25).** the original said CNI "supports **service discovery and DNS resolution**". **Now:** DNS-based service discovery is done by **CoreDNS** (an add-on, topic 33), and Service load balancing by **kube-proxy** (or a CNI that replaces it). The CNI spec itself only covers attaching Pods to the network. Some CNIs (Cilium) *add* Service load balancing, but DNS stays with CoreDNS.
 
 <a id="c2"></a>**C2 · Corrected (Day 25).** Weave Net was listed as a current option. **Now:** Weaveworks shut down in early 2024 and **Weave Net is no longer maintained**. Don't choose it for new clusters. Cilium (WireGuard/IPsec) and Calico (WireGuard) provide encrypted Pod traffic.
+
+### Official references
+
+Official docs for this topic (from the reference list of `Storage-In-Kubernetes-Masterclass`):
+
+- [Compute, storage and networking extensions (CRI, CNI, CSI)](https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/)
+- [CSI volumes](https://kubernetes.io/docs/concepts/storage/volumes/#csi)
+- [List of CSI drivers](https://kubernetes-csi.github.io/docs/drivers.html)

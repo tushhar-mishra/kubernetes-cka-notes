@@ -398,7 +398,7 @@ This topic was rebuilt from the original CKA course notes. This appendix keeps t
 
 ### Sources
 
-Day 30 (what encryption is and why; the two types; symmetric: algorithms, use cases, why for bulk data; asymmetric: algorithms, use cases, why, considerations; summary table; roles of symmetric and asymmetric; in-transit vs at-rest and comparison; scenarios 1–4 with Seema: BitLocker, the shared-key problem, SSH into EC2, TLS handshake; key-file extensions; key takeaways; conclusion).
+Day 30 (what encryption is and why; the two types; symmetric: algorithms, use cases, why for bulk data; asymmetric: algorithms, use cases, why, considerations; summary table; roles of symmetric and asymmetric; in-transit vs at-rest and comparison; scenarios 1–4 with Seema: BitLocker, the shared-key problem, SSH into EC2, TLS handshake; key-file extensions; key takeaways; conclusion). The same sections reappear in `TLS-In-Kubernetes-Masterclass/README.md` (Days 30–34).
 
 ### Corrections to the original notes
 

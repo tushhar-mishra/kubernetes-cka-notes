@@ -389,7 +389,7 @@ This topic was rebuilt from the original CKA course notes. This appendix keeps t
 
 ### Sources
 
-Day 32 (introduction; what a kubeconfig is and why; life without it; contexts; scenario with three clusters; how contexts work; app namespaces per environment; example kubeconfig with certificate-field explanations; viewing and managing; command table; multiple kubeconfig files; `KUBECONFIG` as default; adding users/clusters/contexts; mTLS: definition, one-way vs mutual, managed services, server first, why in Kubernetes, comparison table; conclusion). Day 08's context material is in topic 12.
+Day 32 (introduction; what a kubeconfig is and why; life without it; contexts; scenario with three clusters; how contexts work; app namespaces per environment; example kubeconfig with certificate-field explanations; viewing and managing; command table; multiple kubeconfig files; `KUBECONFIG` as default; adding users/clusters/contexts; mTLS: definition, one-way vs mutual, managed services, server first, why in Kubernetes, comparison table; conclusion). Day 08's context material is in topic 12. The same sections reappear in `TLS-In-Kubernetes-Masterclass/README.md` (Days 30–34).
 
 ### Corrections to the original notes
 

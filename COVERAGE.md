@@ -25,7 +25,7 @@ Two images in `images/` weren't referenced by any original README. Both are now 
 
 ## Corrections index
 
-Wherever the original notes were wrong or outdated, the original statement is kept in full in the topic's **Appendix → Corrections to the original notes** as **Cn · Corrected (Day NN).** "what the original said". **Now:** what's true, and why. In the topic body, the current fact appears as a short ✅ **Correct today** line, or as a ⚠️ **Fix to the original** box when the whole explanation is an instruction you'll follow. Either way it links to its Cn entry. Smaller precision points are ℹ️ **Note** boxes in the body. There are about **126 corrections** across **58 topics**, plus about **24 clarifications**. Search any topic for `Corrected (Day` to find its appendix entries.
+Wherever the original notes were wrong or outdated, the original statement is kept in full in the topic's **Appendix → Corrections to the original notes** as **Cn · Corrected (Day NN).** "what the original said". **Now:** what's true, and why. In the topic body, the current fact appears as a short ✅ **Correct today** line, or as a ⚠️ **Fix to the original** box when the whole explanation is an instruction you'll follow. Either way it links to its Cn entry. Smaller precision points are ℹ️ **Note** boxes in the body. There are about **128 corrections** across **58 topics**, plus about **24 clarifications**. Search any topic for `Corrected (Day` to find its appendix entries.
 
 | Topic | Corrections | Topic | Corrections | Topic | Corrections |
 |---|---|---|---|---|---|
@@ -33,14 +33,14 @@ Wherever the original notes were wrong or outdated, the original statement is ke
 | 02 | 1 | 23 | 3 | 50 | 3 |
 | 03 | 2 | 25 | 1 | 51 | 1 |
 | 05 | 1 | 26 | 2 | 52 | 1 |
-| 06 | 3 | 28 | 4 | 53 | 1 |
+| 06 | 3 | 28 | 4 | 53 | 2 |
 | 08 | 1 | 30 | 3 | 54 | 4 |
 | 09 | 2 | 31 | 3 | 55 | 3 |
 | 10 | 4 | 32 | 4 | 56 | 3 |
 | 11 | 1 | 33 | 4 | 57 | 3 |
 | 12 | 1 | 36 | 1 | 58 | 4 |
 | 13 | 2 | 37 | 1 | 59 | 3 |
-| 14 | 2 | 38 | 4 | 61 | 2 |
+| 14 | 2 | 38 | 5 | 61 | 2 |
 | 15 | 1 | 40 | 1 | 62 | 3 |
 | 16 | 1 | 41 | 2 | 64 | 2 |
 | 19 | 2 | 42 | 1 | 65 | 5 |
@@ -53,6 +53,358 @@ Wherever the original notes were wrong or outdated, the original statement is ke
 These topics were written to complete the path to production. Each one names, in its appendix, which original Days it builds on: [04](notes/04-linux-under-kubernetes.md), [29](notes/29-network-model-and-cni.md), [32](notes/32-inside-a-service-kube-proxy.md), [46](notes/46-pod-affinity-and-topology-spread.md), [60](notes/60-pod-security-seccomp-apparmor.md), [63](notes/63-supply-chain-and-secrets-in-production.md), [68](notes/68-gitops.md), [74](notes/74-service-mesh-essentials.md), [77](notes/77-etcd-backup-restore-and-dr.md), [78](notes/78-ha-control-plane-and-managed-kubernetes.md), [80](notes/80-production-observability.md), [81](notes/81-troubleshooting-method.md), [84](notes/84-production-break-fix-scenarios.md), [85](notes/85-production-readiness-checklist.md), [86](notes/86-interview-question-bank.md), [87](notes/87-senior-scenario-interviews.md), [88](notes/88-cka-exam-strategy.md), [89](notes/89-cheat-sheet.md).
 
 ---
+
+## Masterclass folders (Storage and TLS)
+
+Two extra folders, `Storage-In-Kubernetes-Masterclass/` and `TLS-In-Kubernetes-Masterclass/`, were checked against these notes on 2026-11-19. Each is a single `README.md` that **merges course Days**: Storage = Days 24–28, TLS = Days 30–34. A line-by-line comparison against the original Day READMEs found:
+
+- **Identical content** everywhere except the intro/conclusion summaries, the tables of contents, one reference list (Storage) and one rewritten paragraph (TLS, Example 3 Step 3).
+- **All 35 images** are byte-identical to files in `images/`. **All 17 YAML files** are byte-identical to the original `Day 26`/`Day 27`/`Day 28` files, whose content is written out in the topics listed below.
+
+What was merged from them:
+
+| Item | Label | Where it lives now |
+|---|---|---|
+| Storage masterclass reference list (19 official Docker/Kubernetes doc links) | ➕ More detail | **Official references** in the appendix of [09](notes/09-plugins-interfaces-and-add-ons.md), [34](notes/34-configmaps.md), [35](notes/35-secrets.md), [36](notes/36-docker-storage-recap.md), [37](notes/37-ephemeral-volumes.md), [38](notes/38-persistent-storage-pv-pvc.md), [39](notes/39-storageclasses-dynamic-provisioning.md) |
+| Storage: "Recycle (Deprecated in v1.20+) … It was removed" | ⚠️ Conflict | Corrected in [38](notes/38-persistent-storage-pv-pvc.md#c5) (C5) |
+| TLS: Example 3 Step 3 rewrite ("trust is enforced at the client-auth side"; API server "relies on RBAC, Node authorizer, and NodeRestriction") | ⚠️ Conflict | Corrected in [53](notes/53-tls-inside-the-cluster.md#c2) (C2) |
+| A stray AI-chat line in the Storage masterclass ("Sure! Here's a refined and enhanced version…") | Not content | Not carried over |
+
+Every heading is listed below (`↳` = level 3, `↳↳` = level 4; headings inside code blocks are ignored).
+
+### Storage-In-Kubernetes-Masterclass · README.md
+
+| Masterclass section | New home |
+|---|---|
+| Storage in Kubernetes MASTERCLASS | Not carried over (video link / repo star request / table of contents: navigation only) |
+| Video reference for the MASTERCLASS is the following: | Not carried over (video link / repo star request / table of contents: navigation only) |
+| ⭐ Support the Project | Not carried over (video link / repo star request / table of contents: navigation only) |
+| Table of Contents | Not carried over (video link / repo star request / table of contents: navigation only) |
+| ↳ Introduction | Not carried over as content: a summary of the course flow, which the learning path in [INDEX.md](INDEX.md) already gives |
+| ↳ Understanding Storage in Docker | [36](notes/36-docker-storage-recap.md) |
+| ↳ Layers in a Dockerfile | [36](notes/36-docker-storage-recap.md) |
+| ↳ Example: Layers in Our Dockerfile | [36](notes/36-docker-storage-recap.md) |
+| ↳ How to Inspect Image Layers | [36](notes/36-docker-storage-recap.md) |
+| ↳ How Docker Containers Use Image Layers | [36](notes/36-docker-storage-recap.md) |
+| ↳ Storage Calculation Example | [36](notes/36-docker-storage-recap.md) |
+| ↳ Handling Data Loss in Writable Layers | [36](notes/36-docker-storage-recap.md) |
+| ↳ Need for Persistent Storage | [36](notes/36-docker-storage-recap.md) |
+| Storage in Docker: How Does It Work? | [36](notes/36-docker-storage-recap.md) |
+| ↳ 1. Storage Drivers | [36](notes/36-docker-storage-recap.md) |
+| ↳ 2. Volume Drivers | [36](notes/36-docker-storage-recap.md) |
+| How Docker Storage Works on macOS, Windows, and Linux | [36](notes/36-docker-storage-recap.md) |
+| ↳ Linux | [36](notes/36-docker-storage-recap.md) |
+| ↳ macOS and Windows | [36](notes/36-docker-storage-recap.md) |
+| ↳ Understanding Docker Volumes | [36](notes/36-docker-storage-recap.md) |
+| ↳ Where Are Docker Volumes Stored? | [36](notes/36-docker-storage-recap.md) |
+| Demo: With Persistent Storage (Docker Volume) | [36](notes/36-docker-storage-recap.md) |
+| ↳ Note for macOS and Windows Users | [36](notes/36-docker-storage-recap.md) |
+| ↳↳ How to Access Volume Data on macOS: | [36](notes/36-docker-storage-recap.md) |
+| ↳ Types of Docker Volumes: Which to Use When? | [36](notes/36-docker-storage-recap.md) |
+| Kubernetes Core and Extended Architecture | [06](notes/06-the-cluster-at-a-glance.md) |
+| Kubernetes Core Architecture | [06](notes/06-the-cluster-at-a-glance.md) |
+| ↳ What is Kubernetes Core? | [06](notes/06-the-cluster-at-a-glance.md) |
+| ↳ 1️⃣ Control Plane Components | [07](notes/07-control-plane-components.md) |
+| ↳ 2️⃣ Node Components | [08](notes/08-node-components.md) |
+| Kubernetes Extensions: Beyond the Core | [09](notes/09-plugins-interfaces-and-add-ons.md) |
+| ↳ 1️⃣ Plugins | [09](notes/09-plugins-interfaces-and-add-ons.md) |
+| ↳↳ CRI Plugins (Container Runtimes) | [09](notes/09-plugins-interfaces-and-add-ons.md) |
+| ↳↳ CNI Plugins (Networking) | [09](notes/09-plugins-interfaces-and-add-ons.md) |
+| ↳↳ CSI Plugins (Storage) | [09](notes/09-plugins-interfaces-and-add-ons.md) |
+| ↳↳ Responsibilities of CRI, CNI, and CSI in Kubernetes | [09](notes/09-plugins-interfaces-and-add-ons.md) |
+| ↳ 2️⃣ Add-Ons | [09](notes/09-plugins-interfaces-and-add-ons.md) |
+| ↳ 3️⃣ Third-Party Extensions | [09](notes/09-plugins-interfaces-and-add-ons.md) |
+| Deep Dive into Kubernetes Interfaces | [06](notes/06-the-cluster-at-a-glance.md) [09](notes/09-plugins-interfaces-and-add-ons.md) |
+| ↳ Overview of Kubernetes Interfaces | [06](notes/06-the-cluster-at-a-glance.md) [09](notes/09-plugins-interfaces-and-add-ons.md) |
+| Why Kubernetes Uses a Plugin-Based Architecture? | [09](notes/09-plugins-interfaces-and-add-ons.md) |
+| Key Takeaways | [06](notes/06-the-cluster-at-a-glance.md) |
+| ↳ Ephemeral Storage | [37](notes/37-ephemeral-volumes.md) |
+| ↳↳ EmptyDir | [37](notes/37-ephemeral-volumes.md) |
+| ↳↳ Demo: emptyDir | [37](notes/37-ephemeral-volumes.md) |
+| ↳↳ Downward API | [37](notes/37-ephemeral-volumes.md) |
+| ↳↳ Why is it Used? | [37](notes/37-ephemeral-volumes.md) |
+| ↳↳ Demo: downwardAPI - Environment variables | [37](notes/37-ephemeral-volumes.md) |
+| ↳↳ Demo: downwardAPI - Files via Volumes | [37](notes/37-ephemeral-volumes.md) |
+| ↳↳ ConfigMaps & Secrets (To Be Discussed in Next Lecture) | [37](notes/37-ephemeral-volumes.md) (preview; full topics [34](notes/34-configmaps.md), [35](notes/35-secrets.md)) |
+| Evolution of Storage in Kubernetes: From In-Tree to CSI Drivers | [38](notes/38-persistent-storage-pv-pvc.md) |
+| 1. In-Tree Volume Plugins: The Legacy Model | [38](notes/38-persistent-storage-pv-pvc.md) |
+| ↳ Examples of In-Tree Plugins: | [38](notes/38-persistent-storage-pv-pvc.md) |
+| 2. Container Storage Interface (CSI): The Modern Standard | [38](notes/38-persistent-storage-pv-pvc.md) |
+| ↳ Key Benefits of CSI: | [38](notes/38-persistent-storage-pv-pvc.md) |
+| ↳ Examples of CSI Drivers: | [38](notes/38-persistent-storage-pv-pvc.md) |
+| Special Cases: hostPath and local Storage | [38](notes/38-persistent-storage-pv-pvc.md) |
+| ↳ hostPath | [38](notes/38-persistent-storage-pv-pvc.md) |
+| ↳ local Volumes | [38](notes/38-persistent-storage-pv-pvc.md) |
+| ↳↳ Transitioning from In-Tree Drivers | [38](notes/38-persistent-storage-pv-pvc.md) |
+| ↳↳ Key Takeaways: | [38](notes/38-persistent-storage-pv-pvc.md) |
+| ↳ Persistent Storage | [38](notes/38-persistent-storage-pv-pvc.md) |
+| ↳↳ hostPath | [38](notes/38-persistent-storage-pv-pvc.md) |
+| ↳ Understanding hostPath in KIND: How Storage Works Under the Hood | [38](notes/38-persistent-storage-pv-pvc.md) |
+| ↳↳ 1. On Ubuntu/Linux | [38](notes/38-persistent-storage-pv-pvc.md) |
+| ↳↳ 2. On macOS and Windows | [38](notes/38-persistent-storage-pv-pvc.md) |
+| ↳ Key Takeaway | [38](notes/38-persistent-storage-pv-pvc.md) |
+| ↳ Why This Matters | [38](notes/38-persistent-storage-pv-pvc.md) |
+| ↳ Demo: hostPath | [38](notes/38-persistent-storage-pv-pvc.md) |
+| ↳ Persistent Volumes (PVs) & Persistent Volume Claims (PVCs) | [38](notes/38-persistent-storage-pv-pvc.md) |
+| ↳↳ Persistent Volumes (PVs) | [38](notes/38-persistent-storage-pv-pvc.md) |
+| ↳↳ Persistent Volume Claims (PVCs) | [38](notes/38-persistent-storage-pv-pvc.md) |
+| ↳ Understanding Scope & Relationships of PV and PVC in Kubernetes | [38](notes/38-persistent-storage-pv-pvc.md) |
+| ↳↳ PVs are Cluster-Scoped Resources | [38](notes/38-persistent-storage-pv-pvc.md) |
+| ↳↳ PVCs are Namespace-Scoped | [38](notes/38-persistent-storage-pv-pvc.md) |
+| ↳ Why Is This Important? | [38](notes/38-persistent-storage-pv-pvc.md) |
+| ↳ 1-to-1 Binding Relationship Between PVC and PV | [38](notes/38-persistent-storage-pv-pvc.md) |
+| ↳ Additional Key Points | [38](notes/38-persistent-storage-pv-pvc.md) |
+| ↳ Example Scenario | [38](notes/38-persistent-storage-pv-pvc.md) |
+| ↳ Kubernetes Persistent Storage Flow (Manual Provisioning) | [38](notes/38-persistent-storage-pv-pvc.md) |
+| ↳ Important Notes | [38](notes/38-persistent-storage-pv-pvc.md) |
+| ↳↳ Access Modes in Kubernetes Persistent Volumes | [38](notes/38-persistent-storage-pv-pvc.md) |
+| ↳ Explanation of Storage Types | [38](notes/38-persistent-storage-pv-pvc.md) |
+| ↳↳ Block Storage | [38](notes/38-persistent-storage-pv-pvc.md) |
+| ↳↳ File Storage | [38](notes/38-persistent-storage-pv-pvc.md) |
+| ↳ Key Differences: Block Storage vs. File Storage | [38](notes/38-persistent-storage-pv-pvc.md) |
+| ↳ Reclaim Policies in Kubernetes | [38](notes/38-persistent-storage-pv-pvc.md) (Recycle claim corrected: C5) |
+| ↳↳ 1. Delete (Common for Dynamically Provisioned Storage) | [38](notes/38-persistent-storage-pv-pvc.md) (Recycle claim corrected: C5) |
+| ↳↳ 2. Retain (Manual Intervention Needed for Reuse) | [38](notes/38-persistent-storage-pv-pvc.md) (Recycle claim corrected: C5) |
+| ↳↳ 3. Recycle (Deprecated in Kubernetes v1.20+) | [38](notes/38-persistent-storage-pv-pvc.md) (Recycle claim corrected: C5) |
+| ↳ Choosing the Right Reclaim Policy | [38](notes/38-persistent-storage-pv-pvc.md) (Recycle claim corrected: C5) |
+| ↳ PVC and PV Binding Conditions | [38](notes/38-persistent-storage-pv-pvc.md) |
+| ↳ Summary Table: PVC and PV Binding Conditions | [38](notes/38-persistent-storage-pv-pvc.md) |
+| ↳ Example Table: PVC vs. PV Matching | [38](notes/38-persistent-storage-pv-pvc.md) |
+| ↳ Critical Note for KIND/Minikube Users | [38](notes/38-persistent-storage-pv-pvc.md) |
+| ↳↳ Why Modify the Default Storage Class? | [38](notes/38-persistent-storage-pv-pvc.md) |
+| ↳↳ Steps to Back Up and Delete the Storage Class | [38](notes/38-persistent-storage-pv-pvc.md) |
+| ↳ Demo: Persistent Volumes and PVCs with Reclaim Policy | [38](notes/38-persistent-storage-pv-pvc.md) |
+| ↳↳ Step 1: Create a Persistent Volume (PV) | [38](notes/38-persistent-storage-pv-pvc.md) |
+| ↳↳ Step 2: Create a Persistent Volume Claim (PVC) | [38](notes/38-persistent-storage-pv-pvc.md) |
+| ↳↳ Step 3: Create a Pod That Uses the PVC | [38](notes/38-persistent-storage-pv-pvc.md) |
+| ↳↳ Final Verification | [38](notes/38-persistent-storage-pv-pvc.md) |
+| ↳ Storage Classes & Dynamic Provisioning | [39](notes/39-storageclasses-dynamic-provisioning.md) |
+| ↳↳ What is a Storage Class? | [39](notes/39-storageclasses-dynamic-provisioning.md) |
+| ↳↳ Why Is a Storage Class Required? | [39](notes/39-storageclasses-dynamic-provisioning.md) |
+| ↳ Example Storage Classes | [39](notes/39-storageclasses-dynamic-provisioning.md) |
+| ↳↳ Key Points | [39](notes/39-storageclasses-dynamic-provisioning.md) |
+| ↳ Dynamic Provisioning in Action | [39](notes/39-storageclasses-dynamic-provisioning.md) |
+| ↳↳ Persistent Volume Claim (PVC) | [39](notes/39-storageclasses-dynamic-provisioning.md) |
+| ↳↳ Persistent Volume (PV) | [39](notes/39-storageclasses-dynamic-provisioning.md) |
+| ↳↳ Pod Using PVC | [39](notes/39-storageclasses-dynamic-provisioning.md) |
+| ↳↳ Key Takeaways | [39](notes/39-storageclasses-dynamic-provisioning.md) |
+| ↳ Demo: Storage Class | [39](notes/39-storageclasses-dynamic-provisioning.md) |
+| ↳↳ Step 1: Reapply the Storage Class | [39](notes/39-storageclasses-dynamic-provisioning.md) |
+| ↳↳ Step 2: Create the PersistentVolumeClaim (PVC) | [39](notes/39-storageclasses-dynamic-provisioning.md) |
+| ↳↳ Step 3: Understand VolumeBindingMode | [39](notes/39-storageclasses-dynamic-provisioning.md) |
+| ↳↳ Step 4: Create a Pod Using the PVC | [39](notes/39-storageclasses-dynamic-provisioning.md) |
+| ↳↳ Step 5: Verify the Status | [39](notes/39-storageclasses-dynamic-provisioning.md) |
+| ↳ Key Takeaways | [39](notes/39-storageclasses-dynamic-provisioning.md) |
+| ConfigMaps | [34](notes/34-configmaps.md) |
+| ↳ Why Do We Need ConfigMaps? | [34](notes/34-configmaps.md) |
+| ↳ What is a ConfigMap? | [34](notes/34-configmaps.md) |
+| ↳ Without ConfigMap: Hardcoded Environment Variables | [34](notes/34-configmaps.md) |
+| Demo 1: Using ConfigMap as Environment Variables | [34](notes/34-configmaps.md) |
+| ↳ Step 1: Create ConfigMap | [34](notes/34-configmaps.md) |
+| ↳ Step 2: Reference ConfigMap in Deployment | [34](notes/34-configmaps.md) |
+| ↳ Verification | [34](notes/34-configmaps.md) |
+| Demo 2: Using ConfigMap as a Configuration File (Volume Mount) | [34](notes/34-configmaps.md) |
+| ↳ Step 1: Modify ConfigMap to Include HTML File | [34](notes/34-configmaps.md) |
+| ↳ Step 2: Mount ConfigMap Volume in Deployment | [34](notes/34-configmaps.md) |
+| ↳ What if you *do* want to mount the ConfigMap as a single file? | [34](notes/34-configmaps.md) |
+| Step 3: Expose the Deployment using a NodePort Service | [34](notes/34-configmaps.md) |
+| ↳ NodePort Service Manifest | [34](notes/34-configmaps.md) |
+| Verification | [34](notes/34-configmaps.md) |
+| ↳↳ 1. Get the Pod name | [34](notes/34-configmaps.md) |
+| ↳↳ 2. Verify the index.html content inside the container | [34](notes/34-configmaps.md) |
+| ↳↳ 3. Access the Application via NodePort | [34](notes/34-configmaps.md) |
+| ↳↳ 4. If You're Using KIND (Kubernetes in Docker) | [34](notes/34-configmaps.md) |
+| ↳ Best Practices for ConfigMap | [34](notes/34-configmaps.md) |
+| Kubernetes Secrets | [35](notes/35-secrets.md) |
+| ↳ Why Do We Need Secrets in Kubernetes? | [35](notes/35-secrets.md) |
+| ↳ What is a Kubernetes Secret? | [35](notes/35-secrets.md) |
+| ↳ Important Distinction: Encoding vs. Encryption | [35](notes/35-secrets.md) |
+| ↳ Encoding vs. Encryption | [35](notes/35-secrets.md) |
+| ↳ Demo 1: Injecting Secrets into a Pod | [35](notes/35-secrets.md) |
+| ↳ Step 1: Create the Secret | [35](notes/35-secrets.md) |
+| ↳ Step 2: Update the Deployment to Use the Secret | [35](notes/35-secrets.md) |
+| ↳ Step 3: Verify Secret Injection | [35](notes/35-secrets.md) |
+| ↳ Alternative: Mount Secret as Files | [35](notes/35-secrets.md) |
+| ↳↳ Update container spec: | [35](notes/35-secrets.md) |
+| ↳↳ Add volume to spec: | [35](notes/35-secrets.md) |
+| ↳ Best Practices for Using Kubernetes Secrets | [35](notes/35-secrets.md) |
+| ↳ Understanding Dynamic Updates with ConfigMaps and Secrets | [35](notes/35-secrets.md) |
+| ↳ Conclusion | Not carried over as content: a summary of the course flow, which the learning path in [INDEX.md](INDEX.md) already gives |
+| ↳ References | Official references in [09](notes/09-plugins-interfaces-and-add-ons.md), [34](notes/34-configmaps.md), [35](notes/35-secrets.md), [36](notes/36-docker-storage-recap.md), [37](notes/37-ephemeral-volumes.md), [38](notes/38-persistent-storage-pv-pvc.md), [39](notes/39-storageclasses-dynamic-provisioning.md) |
+
+| Image | Used in |
+|---|---|
+| `24a.png` | [36](notes/36-docker-storage-recap.md)  |
+| `24b.png` | [36](notes/36-docker-storage-recap.md)  |
+| `24c.png` | [36](notes/36-docker-storage-recap.md)  |
+| `24d.png` | [36](notes/36-docker-storage-recap.md)  |
+| `24e.png` | [36](notes/36-docker-storage-recap.md)  |
+| `25a.png` | [06](notes/06-the-cluster-at-a-glance.md)  |
+| `25b.png` | [09](notes/09-plugins-interfaces-and-add-ons.md)  |
+| `26a.png` | [37](notes/37-ephemeral-volumes.md)  |
+| `27a.png` | [38](notes/38-persistent-storage-pv-pvc.md)  |
+| `27b.png` | [38](notes/38-persistent-storage-pv-pvc.md)  |
+| `27c.png` | [38](notes/38-persistent-storage-pv-pvc.md)  |
+| `27d.png` | [39](notes/39-storageclasses-dynamic-provisioning.md)  |
+| `27e.png` | [38](notes/38-persistent-storage-pv-pvc.md)  |
+
+| File | Used in |
+|---|---|
+| `backend-2.yaml` | [35](notes/35-secrets.md)  |
+| `cm-1.yaml` | [34](notes/34-configmaps.md)  |
+| `cm-2.yaml` | [34](notes/34-configmaps.md)  |
+| `downwardapi-1.yaml` | [37](notes/37-ephemeral-volumes.md)  |
+| `downwardapi-2.yaml` | [37](notes/37-ephemeral-volumes.md)  |
+| `emptyDir.yaml` | [37](notes/37-ephemeral-volumes.md)  |
+| `ev.yaml` | [34](notes/34-configmaps.md)  |
+| `frontend-cm-1.yaml` | [34](notes/34-configmaps.md)  |
+| `frontend-cm-2.yaml` | [34](notes/34-configmaps.md)  |
+| `frontend-secret-1.yaml` | [35](notes/35-secrets.md)  |
+| `frontend-secret-2.yaml` | [35](notes/35-secrets.md)  |
+| `hostpath.yaml` | [38](notes/38-persistent-storage-pv-pvc.md)  |
+| `pod.yaml` | [13](notes/13-yaml-and-manifest-anatomy.md) [18](notes/18-pods.md)  |
+| `pv.yaml` | [38](notes/38-persistent-storage-pv-pvc.md)  |
+| `pvc.yaml` | [38](notes/38-persistent-storage-pv-pvc.md)  |
+| `sc.yaml` | [38](notes/38-persistent-storage-pv-pvc.md) [39](notes/39-storageclasses-dynamic-provisioning.md)  |
+| `secret-1.yaml` | [35](notes/35-secrets.md)  |
+
+### TLS-In-Kubernetes-Masterclass · README.md
+
+| Masterclass section | New home |
+|---|---|
+| TLS in Kubernetes MASTERCLASS \| mTLS, CSR, CA, SSH, kubeconfig & Cluster Security Explained | Not carried over (video link / repo star request / table of contents: navigation only) |
+| Video reference for the Masterclass is the following: | Not carried over (video link / repo star request / table of contents: navigation only) |
+| ⭐ Support the Project | Not carried over (video link / repo star request / table of contents: navigation only) |
+| Table of Contents | Not carried over (video link / repo star request / table of contents: navigation only) |
+| TLS in Kubernetes MASTERCLASS — Full Series | Not carried over as content: a summary of the course flow, which the learning path in [INDEX.md](INDEX.md) already gives |
+| Introduction | Not carried over as content: a summary of the course flow, which the learning path in [INDEX.md](INDEX.md) already gives |
+| What is Encryption? Why Do We Need It? | [50](notes/50-encryption-basics.md) |
+| Two Main Types of Encryption | [50](notes/50-encryption-basics.md) |
+| ↳ 1. Symmetric Encryption (Shared Key Encryption) | [50](notes/50-encryption-basics.md) |
+| ↳ 2. Asymmetric Encryption (Public Key Cryptography) | [50](notes/50-encryption-basics.md) |
+| Summary Table | [50](notes/50-encryption-basics.md) |
+| ↳ Symmetric and Asymmetric Encryption: Roles and Functions | [50](notes/50-encryption-basics.md) |
+| Encryption Approaches: In-Transit vs At-Rest | [50](notes/50-encryption-basics.md) |
+| ↳ 1. Encryption In-Transit | [50](notes/50-encryption-basics.md) |
+| ↳ 2. Encryption At-Rest | [50](notes/50-encryption-basics.md) |
+| ↳ Quick Comparison: | [50](notes/50-encryption-basics.md) |
+| Understanding Symmetric and Asymmetric Encryption Through Real-Life Scenarios | [50](notes/50-encryption-basics.md) |
+| ↳ Scenario 1: Symmetric Encryption (Disk Encryption) | [50](notes/50-encryption-basics.md) |
+| ↳ Scenario 2: Symmetric Encryption Alone Isn't Enough for Internet Communication | [50](notes/50-encryption-basics.md) |
+| ↳ Scenario 3: Asymmetric Encryption (SSH into EC2 Instance) | [50](notes/50-encryption-basics.md) |
+| ↳↳ Steps: | [50](notes/50-encryption-basics.md) |
+| ↳↳ Key Concepts: | [50](notes/50-encryption-basics.md) |
+| ↳↳ How SSH Uses Asymmetric Encryption: | [50](notes/50-encryption-basics.md) |
+| ↳ Scenario 4: Combining Symmetric + Asymmetric (TLS Handshake) | [50](notes/50-encryption-basics.md) |
+| ↳ Client and Server – A Refresher | [51](notes/51-certificates-and-cas.md) |
+| Public Key Cryptography | [51](notes/51-certificates-and-cas.md) |
+| ↳ Public Key Cryptography in DevOps: Focus on SSH & HTTPS | [51](notes/51-certificates-and-cas.md) |
+| ↳↳ 1. Secure Remote Access: ssh-keygen (SSH Authentication) | [51](notes/51-certificates-and-cas.md) |
+| ↳↳ 2. Secure Web Communication: openssl (TLS Certificates & Identity Validation) | [51](notes/51-certificates-and-cas.md) |
+| ↳↳ Key Management Best Practices | [51](notes/51-certificates-and-cas.md) |
+| ↳↳ Common Key File Formats | [51](notes/51-certificates-and-cas.md) |
+| ↳↳ For SSH Authentication | [51](notes/51-certificates-and-cas.md) |
+| ↳↳ For TLS Certificates | [51](notes/51-certificates-and-cas.md) |
+| ↳↳ What Public Key Cryptography (PKC) Provides | [51](notes/51-certificates-and-cas.md) |
+| ↳ 1. Authentication (Identity Verification): | [51](notes/51-certificates-and-cas.md) |
+| ↳↳ In SSH: | [51](notes/51-certificates-and-cas.md) |
+| ↳↳ In TLS (e.g., HTTPS): | [51](notes/51-certificates-and-cas.md) |
+| ↳ Order of Authentication in Mutual Authentication (SSH or mTLS) | [51](notes/51-certificates-and-cas.md) |
+| ↳ 2. Secure Key Exchange (Foundation for Encryption): | [51](notes/51-certificates-and-cas.md) |
+| ↳ Types of TLS Certificate Authorities (CA): Public, Private, and Self-Signed | [51](notes/51-certificates-and-cas.md) |
+| ↳ Public CA | [51](notes/51-certificates-and-cas.md) |
+| ↳ Private CA | [51](notes/51-certificates-and-cas.md) |
+| ↳ Self-Signed Certificate | [51](notes/51-certificates-and-cas.md) |
+| ↳↳ Typical Use Cases of Self-Signed Certificates | [51](notes/51-certificates-and-cas.md) |
+| ↳↳ Common Internal Domain Suffixes for Testing | [51](notes/51-certificates-and-cas.md) |
+| Kubeconfig and Kubernetes Context | [52](notes/52-kubeconfig-deep-dive-and-mtls.md) [12](notes/12-kubectl-kubeconfig-and-contexts.md) |
+| ↳ What is a Kubeconfig File and Why Do We Need It? | [52](notes/52-kubeconfig-deep-dive-and-mtls.md) [12](notes/12-kubectl-kubeconfig-and-contexts.md) |
+| ↳ What If the Kubeconfig File Were Not There? | [52](notes/52-kubeconfig-deep-dive-and-mtls.md) [12](notes/12-kubectl-kubeconfig-and-contexts.md) |
+| ↳ Kubernetes Context | [52](notes/52-kubeconfig-deep-dive-and-mtls.md) [12](notes/12-kubectl-kubeconfig-and-contexts.md) |
+| Scenario: | [52](notes/52-kubeconfig-deep-dive-and-mtls.md) [12](notes/12-kubectl-kubeconfig-and-contexts.md) |
+| How Kubernetes Contexts Work: | [52](notes/52-kubeconfig-deep-dive-and-mtls.md) [12](notes/12-kubectl-kubeconfig-and-contexts.md) |
+| ↳ 1. Configuring Contexts: | [52](notes/52-kubeconfig-deep-dive-and-mtls.md) [12](notes/12-kubectl-kubeconfig-and-contexts.md) |
+| ↳ 2. Switching Between Contexts: | [52](notes/52-kubeconfig-deep-dive-and-mtls.md) [12](notes/12-kubectl-kubeconfig-and-contexts.md) |
+| Example kubeconfig File: | [52](notes/52-kubeconfig-deep-dive-and-mtls.md) [12](notes/12-kubectl-kubeconfig-and-contexts.md) |
+| ↳ Viewing & Managing Your kubeconfig | [52](notes/52-kubeconfig-deep-dive-and-mtls.md) [12](notes/12-kubectl-kubeconfig-and-contexts.md) |
+| ↳ Common kubectl config Commands (Compact View) | [52](notes/52-kubeconfig-deep-dive-and-mtls.md) [12](notes/12-kubectl-kubeconfig-and-contexts.md) |
+| ↳ Multiple Kubeconfig Files | [52](notes/52-kubeconfig-deep-dive-and-mtls.md) [12](notes/12-kubectl-kubeconfig-and-contexts.md) |
+| ↳ Using a Custom Kubeconfig as Default via KUBECONFIG | [52](notes/52-kubeconfig-deep-dive-and-mtls.md) [12](notes/12-kubectl-kubeconfig-and-contexts.md) |
+| ↳ Adding Entries to a Kubeconfig File | [52](notes/52-kubeconfig-deep-dive-and-mtls.md) [12](notes/12-kubectl-kubeconfig-and-contexts.md) |
+| Mutual TLS (mTLS) | [52](notes/52-kubeconfig-deep-dive-and-mtls.md) |
+| ↳ Private CAs in Kubernetes Clusters | [53](notes/53-tls-inside-the-cluster.md) |
+| ↳ Kubernetes Components as Clients and Servers | [53](notes/53-tls-inside-the-cluster.md) |
+| ↳ Client (Initiates a Request) | [53](notes/53-tls-inside-the-cluster.md) |
+| ↳ Server (Responds to the Request) | [53](notes/53-tls-inside-the-cluster.md) |
+| Understanding TLS in Kubernetes: No More Memorizing File Paths | [53](notes/53-tls-inside-the-cluster.md) |
+| Example 1: mTLS Between Scheduler (Client) and API Server (Server) | [53](notes/53-tls-inside-the-cluster.md) |
+| ↳ Key Principle: All Clients Use a Kubeconfig File to Connect to the API Server | [53](notes/53-tls-inside-the-cluster.md) |
+| Key TLS and Configuration File Locations (Control Plane & Nodes) | [53](notes/53-tls-inside-the-cluster.md) |
+| SERVER-SIDE: How the API Server Presents Its Certificate | [53](notes/53-tls-inside-the-cluster.md) |
+| ↳ Step 1: Who’s the Server? | [53](notes/53-tls-inside-the-cluster.md) |
+| ↳ Step 2: How Does the Server Present a Certificate? | [53](notes/53-tls-inside-the-cluster.md) |
+| ↳ Step 3: How Does the Scheduler Trust the API Server’s Certificate? | [53](notes/53-tls-inside-the-cluster.md) |
+| ↳↳ a. Locate the Kubeconfig File | [53](notes/53-tls-inside-the-cluster.md) |
+| ↳↳ b. Inspect the CA Data | [53](notes/53-tls-inside-the-cluster.md) |
+| CLIENT-SIDE: How the Scheduler Authenticates to the API Server | [53](notes/53-tls-inside-the-cluster.md) |
+| ↳ Step 1: How Does the Scheduler Authenticate Itself? | [53](notes/53-tls-inside-the-cluster.md) |
+| ↳ Step 2: How Does the API Server Verify the Scheduler? | [53](notes/53-tls-inside-the-cluster.md) |
+| Conclusion: Focus on Config Files, Not Hardcoded Paths | [53](notes/53-tls-inside-the-cluster.md) |
+| ↳ Summary Table | [53](notes/53-tls-inside-the-cluster.md) |
+| Example 2: mTLS Between API Server (Client) and etcd (Server) | [53](notes/53-tls-inside-the-cluster.md) |
+| SERVER-SIDE: etcd Presents Its Certificate to API Server | [53](notes/53-tls-inside-the-cluster.md) |
+| ↳ Step 1: Know Who’s the Server | [53](notes/53-tls-inside-the-cluster.md) |
+| ↳ Step 2: Where Is etcd's Certificate Defined? | [53](notes/53-tls-inside-the-cluster.md) |
+| ↳ Step 3: How Does the API Server Verify etcd's Certificate? | [53](notes/53-tls-inside-the-cluster.md) |
+| CLIENT-SIDE: API Server Authenticates to etcd | [53](notes/53-tls-inside-the-cluster.md) |
+| ↳ Step 1: Where Does API Server Specify TLS Credentials? | [53](notes/53-tls-inside-the-cluster.md) |
+| ↳ Step 2: How Does etcd Verify the API Server's Certificate? | [53](notes/53-tls-inside-the-cluster.md) |
+| ↳ How Mutual TLS (mTLS) Works Here | [53](notes/53-tls-inside-the-cluster.md) |
+| ↳ Takeaway: Focus on Flags, Not File Paths | [53](notes/53-tls-inside-the-cluster.md) |
+| ↳ Summary Table | [53](notes/53-tls-inside-the-cluster.md) |
+| Example 3: mTLS Between API Server (Client) and Kubelet (Server) | [53](notes/53-tls-inside-the-cluster.md) |
+| Who is the Client and Who is the Server? | [53](notes/53-tls-inside-the-cluster.md) |
+| SERVER-SIDE: How the Kubelet Presents Its Certificate | [53](notes/53-tls-inside-the-cluster.md) |
+| ↳ Step 1: Locate the Kubelet Process | [53](notes/53-tls-inside-the-cluster.md) |
+| ↳ Step 2: Inspect the Server Certificate | [53](notes/53-tls-inside-the-cluster.md) |
+| ↳ How Did the Kubelet Get This Certificate? | [53](notes/53-tls-inside-the-cluster.md) |
+| ↳ Step 3: How the API Server Verifies the Kubelet (or Doesn’t) | [53](notes/53-tls-inside-the-cluster.md) (rewritten paragraph corrected: C2) |
+| CLIENT-SIDE: How the API Server Presents Its Own Certificate to the Kubelet | [53](notes/53-tls-inside-the-cluster.md) |
+| ↳ How the Kubelet Verifies the API Server's Certificate | [53](notes/53-tls-inside-the-cluster.md) |
+| Summary: mTLS Between API Server and Kubelet | [53](notes/53-tls-inside-the-cluster.md) |
+| Recap: How mTLS Happens Here | [53](notes/53-tls-inside-the-cluster.md) |
+| Tasks for You | [53](notes/53-tls-inside-the-cluster.md) |
+| ↳↳ Task 1: Controller Manager (Client) → API Server (Server) | [53](notes/53-tls-inside-the-cluster.md) |
+| ↳↳ Task 2: Kubelet (Client) → API Server (Server) | [53](notes/53-tls-inside-the-cluster.md) |
+| ↳↳ Task 3: Kube-Proxy (Client) → API Server (Server) | [53](notes/53-tls-inside-the-cluster.md) |
+| ↳ Granting Cluster Access to a New User (Seema) using Certificates and RBAC | [57](notes/57-rbac.md) [54](notes/54-authentication.md) |
+| Conclusion | Not carried over as content: a summary of the course flow, which the learning path in [INDEX.md](INDEX.md) already gives |
+| ↳ References | [50](notes/50-encryption-basics.md) [51](notes/51-certificates-and-cas.md) [52](notes/52-kubeconfig-deep-dive-and-mtls.md) [53](notes/53-tls-inside-the-cluster.md) [54](notes/54-authentication.md) (the same reference links as Days 30–34) |
+
+| Image | Used in |
+|---|---|
+| `30a.png` | [50](notes/50-encryption-basics.md)  |
+| `30b.png` | [50](notes/50-encryption-basics.md)  |
+| `30c.png` | [50](notes/50-encryption-basics.md)  |
+| `30d.png` | [50](notes/50-encryption-basics.md)  |
+| `30e.png` | [50](notes/50-encryption-basics.md)  |
+| `30f.png` | [50](notes/50-encryption-basics.md)  |
+| `31-1.png` | [51](notes/51-certificates-and-cas.md)  |
+| `31-10.png` | [52](notes/52-kubeconfig-deep-dive-and-mtls.md)  |
+| `31-11.png` | Seema's kubectl ↔ API server TLS with the Kubernetes CA | [51](notes/51-certificates-and-cas.md) |
+| `31-12.png` | [52](notes/52-kubeconfig-deep-dive-and-mtls.md)  |
+| `31-2.png` | [51](notes/51-certificates-and-cas.md)  |
+| `31-3.png` | [51](notes/51-certificates-and-cas.md)  |
+| `31-4.png` | [51](notes/51-certificates-and-cas.md)  |
+| `31-5.png` | [51](notes/51-certificates-and-cas.md)  |
+| `31-6.png` | [51](notes/51-certificates-and-cas.md)  |
+| `31-7.png` | [51](notes/51-certificates-and-cas.md)  |
+| `31-8.png` | [51](notes/51-certificates-and-cas.md)  |
+| `31-9.png` | [52](notes/52-kubeconfig-deep-dive-and-mtls.md)  |
+| `33a.png` | [53](notes/53-tls-inside-the-cluster.md)  |
+| `33b.png` | [53](notes/53-tls-inside-the-cluster.md)  |
+| `33c.png` | [53](notes/53-tls-inside-the-cluster.md)  |
+| `34a.png` | [54](notes/54-authentication.md)  |
 
 ## Day-by-day mapping
 
