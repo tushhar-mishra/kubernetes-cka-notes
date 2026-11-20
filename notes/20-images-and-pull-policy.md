@@ -207,7 +207,7 @@ The default is set **once**: changing a Deployment's tag from `v1` to `latest` l
 
 > ✅ **Correct today** ([C1](#c1)): with `Always`, the kubelet still **reuses cached layers**: it only fetches the small manifest to check the digest, and downloads layers only if the image actually changed. The real costs of `Always` are **one registry round-trip per container start**, **registry rate limits** (Docker Hub), and **Pods failing to start if the registry is down**. Those are the reasons to prefer `IfNotPresent` with immutable tags in production.
 
-**Security note:** with `IfNotPresent`, a Pod could use an image that **another** Pod's credentials pulled onto the node earlier. Kubernetes is closing this gap: the kubelet can now re-verify credentials for cached images (`KubeletEnsureSecretPulledImages`, beta). Multi-tenant clusters may also enforce `Always` with the **AlwaysPullImages** admission plugin (topic 58).
+**Security note:** with `IfNotPresent`, a Pod could use an image that **another** Pod's credentials pulled onto the node earlier. Kubernetes is closing this gap: the kubelet can now re-verify credentials for cached images (`KubeletEnsureSecretPulledImages`, beta ⚠️ *check its stage and default for your version*). Multi-tenant clusters may also enforce `Always` with the **AlwaysPullImages** admission plugin (topic 58).
 
 ---
 

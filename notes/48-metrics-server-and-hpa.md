@@ -175,7 +175,7 @@ Verify after 1–2 minutes:
 ```bash
 kubectl top pods
 kubectl top nodes
-kubectl get apiservice v1beta1.metrics.k8s.io
+kubectl get apiservice | grep metrics.k8s.io     # v1beta1 on older metrics-server; v1 once your cluster and metrics-server serve the GA API (v1.37, topic 41)
 ```
 
 ```

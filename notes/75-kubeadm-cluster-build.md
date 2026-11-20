@@ -185,6 +185,8 @@ Check: `swapon --show` (empty), `lsmod | grep -E 'overlay|br_netfilter'`, `sysct
 
 ### Step 2: containerd [ALL NODES]
 
+> ⚠️ **Version check.** Ubuntu 24.04's `containerd` package is **1.7.x**, but Kubernetes v1.36+ expects **containerd 2.x** (topic 08). For a v1.37 cluster, install 2.x instead (for example the `containerd.io` package from Docker's apt repo, or the upstream release tarball plus its systemd unit), and confirm with `containerd --version`. The `SystemdCgroup` `sed` below still matches on 2.x; the sandbox-image key does **not** (see the pause-image note after this block). Check the containerd version your Kubernetes release requires before building.
+
 ```bash
 sudo apt-get update && sudo apt-get install -y containerd
 sudo mkdir -p /etc/containerd

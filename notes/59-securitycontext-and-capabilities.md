@@ -189,7 +189,7 @@ In Kubernetes YAML, write names **without** the `CAP_` prefix (`NET_ADMIN`, not 
 
 ### User namespaces: `hostUsers: false`
 
-With `spec.hostUsers: false`, the Pod gets its **own user namespace** (topic 04): UID 0 **inside** the container maps to an unprivileged, high UID (e.g. 1,000,000+) **on the host**. Even if the process is "root" and escapes, it's nobody on the node. **GA since v1.36** (it needs a recent kernel, a runtime that supports ID-mapped mounts, and a supporting filesystem). A great extra layer for workloads that insist on running as root.
+With `spec.hostUsers: false`, the Pod gets its **own user namespace** (topic 04): UID 0 **inside** the container maps to an unprivileged, high UID (e.g. 1,000,000+) **on the host**. Even if the process is "root" and escapes, it's nobody on the node. **GA since v1.36** (⚠️ *verify in the release notes*; it needs a recent kernel, a runtime that supports ID-mapped mounts, and a supporting filesystem). A great extra layer for workloads that insist on running as root.
 
 ---
 

@@ -42,7 +42,7 @@ A **Kubernetes cluster** is a set of machines split into two roles:
 1. **Control plane:** the **brain**. It stores the desired state, decides where things run and constantly fixes differences. It runs no apps (normally).
 2. **Worker nodes** (or just **nodes**): the **muscle**. They run your containers.
 
-> ✅ **Correct today** ([C1](#c1)): Kubernetes stopped using "master" years ago. The official terms are **control plane** and **(worker) node**, and kubeadm labels control-plane nodes `node-role.kubernetes.io/control-plane` (the old `master` label and taint were removed in v1.25). You'll still hear "master" from people and old docs.
+> ✅ **Correct today** ([C1](#c1)): Kubernetes stopped using "master" years ago. The official terms are **control plane** and **(worker) node**, and kubeadm labels control-plane nodes `node-role.kubernetes.io/control-plane` (the old `master` label was removed in v1.24 and the `master` taint in v1.25). You'll still hear "master" from people and old docs.
 
 ![Kubernetes architecture](../images/7c.png)
 
@@ -274,7 +274,7 @@ Day 07 (What is a Deployment, Kubernetes architecture, control plane, worker nod
 
 Each entry shows what the original said and what's true now. In the topic above, each correction appears as a ✅ **Correct today** line or a ⚠️ **Fix to the original** box, linked to its entry here.
 
-<a id="c1"></a>**C1 · Corrected (Day 07).** the original described "a **master-worker** architecture". **Now:** Kubernetes stopped using "master" years ago. The official terms are **control plane** and **(worker) node**, and kubeadm labels control-plane nodes `node-role.kubernetes.io/control-plane` (the old `master` label and taint were removed in v1.25). You'll still hear "master" from people and old docs.
+<a id="c1"></a>**C1 · Corrected (Day 07).** the original described "a **master-worker** architecture". **Now:** Kubernetes stopped using "master" years ago. The official terms are **control plane** and **(worker) node**, and kubeadm labels control-plane nodes `node-role.kubernetes.io/control-plane` (the old `master` label was removed in v1.24 and the `master` taint in v1.25). You'll still hear "master" from people and old docs.
 
 <a id="c2"></a>**C2 · Corrected (Day 07).** the original listed runtimes as "containerd, CRI-O, **Podman, Rocket**". **Now:** Podman is a Docker-like tool for humans, **not** a Kubernetes (CRI) runtime, and **rkt ("Rocket")** was archived in 2020. Supported CRI runtimes are **containerd** and **CRI-O** (plus sandboxed variants like gVisor and Kata that plug in *under* them). Docker Engine only works through the extra **cri-dockerd** adapter (topic 08).
 

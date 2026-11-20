@@ -73,7 +73,7 @@ A **restaurant franchise**:
 ### 1. The kubelet's jobs
 
 1. **Registers the node**: creates its `Node` object with capacity (CPU, memory, max Pods), labels and addresses.
-2. **Heartbeats**: renews a **Lease** in the `kube-node-lease` namespace every ~10 s and updates `Node.status` periodically. If heartbeats stop for ~40 s (`node-monitor-grace-period`), the node controller marks the node **`NotReady`/`Unknown`** and taints it, and Pods are evicted after a toleration period (default 300 s, topic 43).
+2. **Heartbeats**: renews a **Lease** in the `kube-node-lease` namespace every ~10 s and updates `Node.status` periodically. If heartbeats stop for ~50 s (`node-monitor-grace-period`; it was 40 s before v1.32), the node controller marks the node **`NotReady`/`Unknown`** and taints it, and Pods are evicted after a toleration period (default 300 s, topic 43).
 3. **Pod sync loop**: watches the API server for Pods with `spec.nodeName = <this node>`, plus **static Pods** from `/etc/kubernetes/manifests` (topic 42). For each Pod it:
    - admits it (enough resources? allowed?),
    - makes the runtime create the **Pod sandbox** (the pause container + network namespace; the runtime calls the **CNI plugin** to give it an IP),
@@ -117,7 +117,7 @@ Note: it's the **runtime** that calls the CNI plugin when it creates the sandbox
 
 | Runtime | Description |
 |---|---|
-| **containerd** | The default for most clusters (kind, kubeadm, EKS, GKE, AKS). Lightweight, OCI-compliant, a CNCF graduated project. Kubernetes v1.36+ expects **containerd 2.x**; 1.7 is the last 1.x line still tolerated, and its support is being phased out. |
+| **containerd** | The default for most clusters (kind, kubeadm, EKS, GKE, AKS). Lightweight, OCI-compliant, a CNCF graduated project. Kubernetes v1.36+ expects **containerd 2.x** (v1.35 was announced as the last release supporting containerd 1.x; ⚠️ check the exact minimum in your release's notes). Distro packages can lag behind: Ubuntu 24.04's `containerd` package is 1.7.x (see topic 75). |
 | **CRI-O** | A minimal runtime built **only** for Kubernetes; versions track Kubernetes versions. Default in Red Hat OpenShift. |
 | **Kata Containers** | Runs each Pod inside a **lightweight VM** for strong isolation of untrusted workloads. Plugs in under containerd/CRI-O as a different OCI runtime. |
 | **gVisor** (Google) | A **user-space kernel** that intercepts system calls (sandboxing); limits direct host-kernel access. Also plugs in under containerd (`runsc`). |
@@ -250,7 +250,7 @@ On kind (topic 11):
 1. `docker exec -it lab-worker bash`, then run `crictl pods` and `crictl ps`. Match them to `kubectl get pods -A -o wide | grep lab-worker`.
 2. Find the shim and runc processes: `ps -ef | grep -E 'containerd-shim|pause' | grep -v grep`. One shim per Pod; one `/pause` per Pod.
 3. Kill a container behind Kubernetes' back: `crictl stop <nginx-container-id>`. Watch `kubectl get pod -w` from your laptop: the kubelet notices and restarts it (`RESTARTS` goes to 1).
-4. Break the kubelet: `systemctl stop kubelet`. After ~40 s, `kubectl get nodes` shows `lab-worker NotReady`. Running containers **keep running** (`crictl ps`), but nothing reports their status. `systemctl start kubelet` to recover.
+4. Break the kubelet: `systemctl stop kubelet`. After ~50 s, `kubectl get nodes` shows `lab-worker NotReady`. Running containers **keep running** (`crictl ps`), but nothing reports their status. `systemctl start kubelet` to recover.
 5. Read the kubelet log during step 4: `journalctl -u kubelet --since "5 min ago" | tail`.
 
 ---

@@ -234,7 +234,7 @@ spec:
     lifecycle:
       preStop:
         sleep:
-          seconds: 10                   # native sleep action (GA in v1.32); no shell needed
+          seconds: 10                   # native sleep action (beta and on by default since v1.30, GA in v1.34); no shell needed
 ```
 
 (Before the native `sleep` action, people used `exec: { command: ["sh","-c","sleep 10"] }`, which requires a shell in the image.)
@@ -286,7 +286,7 @@ kubectl delete pod mypod --force --grace-period=0
 | Condition | True when |
 |---|---|
 | `PodScheduled` | Bound to a node |
-| `PodReadyToStartContainers` | Sandbox and network created (GA in v1.35) |
+| `PodReadyToStartContainers` | Sandbox and network created (GA in v1.35 ⚠️ *verify in the release notes*) |
 | `Initialized` | All init containers succeeded |
 | `ContainersReady` | All containers are ready |
 | `Ready` | The Pod can serve traffic (ContainersReady + any readiness gates). Only Ready Pods get Service traffic. |

@@ -239,7 +239,7 @@ FIELDS:
     RollingUpdate.
 ```
 
-- Works offline from the cluster's own schema, so it's always correct for **your** version (including CRDs).
+- Reads the **API server's own OpenAPI v3 schema** (fetched from the cluster, then cached), so it's always correct for **your** version, including CRDs. It is *not* offline: with no reachable cluster it fails.
 - `kubectl explain pod.spec --recursive | less` shows the whole field tree. **Allowed in the CKA exam and faster than searching the docs.**
 
 ### Calling the API with curl, unauthenticated

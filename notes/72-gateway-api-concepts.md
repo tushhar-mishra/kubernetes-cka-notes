@@ -192,7 +192,7 @@ The same Route types can configure **east-west** (service-to-service) traffic in
 ### Install the CRDs and inspect
 
 ```bash
-kubectl apply --server-side -f https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.3.0/standard-install.yaml
+kubectl apply --server-side -f https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.3.0/standard-install.yaml   # ⚠️ example version: install the latest release your controller supports
 kubectl api-resources --api-group=gateway.networking.k8s.io
 ```
 
