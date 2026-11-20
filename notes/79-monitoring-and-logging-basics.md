@@ -138,7 +138,7 @@ Kubernetes ships **no full monitoring solution**. Until we installed **metrics-s
 ![metrics-server architecture](../images/56b.png)
 
 1. `kubectl top nodes/pods` calls the API server at **`/apis/metrics.k8s.io/v1beta1/…`**.
-2. The **API aggregation layer** (an `APIService` object, `v1beta1.metrics.k8s.io`) **proxies** the request to the **metrics-server** Service (topic 14).
+2. The **API aggregation layer** (an `APIService` object for `metrics.k8s.io`: `v1beta1` historically, plus `v1` since the API went GA in v1.37) **proxies** the request to the **metrics-server** Service (topic 14).
 3. metrics-server returns the latest **NodeMetrics/PodMetrics** from memory, which it fills by scraping every node's **kubelet** over HTTPS **10250**, using the kubelet's resource-metrics endpoint (`/metrics/resource`; older versions used the **Summary API** `/stats/summary`).
 4. The **kubelet** gets container and node stats from its built-in **cAdvisor** and the container runtime (via CRI stats).
 
@@ -147,7 +147,7 @@ Kubernetes ships **no full monitoring solution**. Until we installed **metrics-s
 **Gotchas:**
 - **Not a monitoring stack**: no storage, alerting or dashboards; pair it with Prometheus/Grafana or a SaaS.
 - **Connectivity**: metrics-server must reach every kubelet on **10250** (and the API server must reach metrics-server's Pod). Labs often use `--kubelet-insecure-tls`; avoid it in production (use proper kubelet serving certificates; topic 53).
-- **If `top` fails**: check the **`v1beta1.metrics.k8s.io` APIService** status (`kubectl get apiservice v1beta1.metrics.k8s.io`), metrics-server logs, and reachability to 10250. (On Day 54's Calico cluster the fix was the `vxlanMode: Always` patch in topic 48.)
+- **If `top` fails**: check the **`metrics.k8s.io` APIService** status (`kubectl get apiservice | grep metrics.k8s.io`), metrics-server logs, and reachability to 10250. (On Day 54's Calico cluster the fix was the `vxlanMode: Always` patch in topic 48.)
 
 ### Types of metrics for autoscaling
 
@@ -293,7 +293,7 @@ Busybox error: Wed Nov 18 10:20:01 UTC 2026 - something went wrong
 ### metrics-server and the metrics APIs
 
 ```bash
-kubectl get apiservice v1beta1.metrics.k8s.io
+kubectl get apiservice | grep metrics.k8s.io
 kubectl top nodes
 kubectl top pods -A --sort-by=memory | head
 kubectl get --raw /apis/metrics.k8s.io/v1beta1/nodes | jq '.items[0].usage'

@@ -47,7 +47,7 @@ Kubernetes clusters run an internal **DNS server** so workloads find each other 
 - Exposed through a **ClusterIP Service named `kube-dns`** (the old name was kept for compatibility), usually at **`10.96.0.10`**.
 - **Plugin-based**: the **`kubernetes`** plugin answers for Services and Pods from the API server's data; **`forward`** sends everything else (e.g. `google.com`) to upstream resolvers; other plugins add caching and metrics.
 
-> ℹ️ The legacy **kube-dns** add-on is formally **deprecated in v1.37**. If an old cluster still runs it, migrate to CoreDNS (kubeadm has used CoreDNS by default for years).
+> ℹ️ The legacy **kube-dns** add-on is formally **deprecated in v1.37** (⚠️ *verify in the v1.37 release notes before quoting*). If an old cluster still runs it, migrate to CoreDNS (kubeadm has used CoreDNS by default for years).
 
 ---
 

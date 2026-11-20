@@ -257,7 +257,7 @@ spec:
       matchLabels: { env: dev }
 ```
 
-**MutatingAdmissionPolicy** (CEL-based mutation) follows the same model (**GA since v1.36**). Prefer these for simple rules; use Kyverno/Gatekeeper for richer policy management.
+**MutatingAdmissionPolicy** (CEL-based mutation) follows the same model (**GA since v1.36** ⚠️ *verify: confirm the API is `admissionregistration.k8s.io/v1` with `kubectl api-resources | grep -i mutatingadmission` on your cluster*). Prefer these for simple rules; use Kyverno/Gatekeeper for richer policy management.
 
 ### Real-world use cases and tools
 
@@ -349,13 +349,13 @@ kind: ClusterPolicy
 metadata:
   name: require-team-label
 spec:
-  validationFailureAction: Enforce        # or Audit
   rules:
   - name: check-team
     match:
       any:
       - resources: { kinds: ["Deployment"] }
     validate:
+      failureAction: Enforce               # or Audit. Per-rule; spec.validationFailureAction is deprecated
       message: "label 'team' is required"
       pattern:
         metadata:

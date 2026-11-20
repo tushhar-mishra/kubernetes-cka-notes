@@ -384,7 +384,7 @@ spec:
 | Endpoints present, `connection refused` | Wrong `targetPort`, or app listening on `127.0.0.1` | Set `targetPort` to the real port; listen on `0.0.0.0` |
 | `Could not resolve host: backend-svc` | Service in another namespace, or DNS problem | `backend-svc.<ns>` (topic 26); DNS debugging (topic 33) |
 | Timeouts to the ClusterIP from every Pod | kube-proxy not running/programming rules, or NetworkPolicy | Topic 32 |
-| `ping` to a ClusterIP fails | Normal: ClusterIPs only answer on Service ports | Test with curl/nc on the port |
+| `ping` to a ClusterIP fails | Normal in iptables/nftables mode: ClusterIPs only answer on Service ports. (In **IPVS** mode the ClusterIP is bound to the `kube-ipvs0` dummy interface, so ping **does** answer, and it proves nothing about the backends.) | Test with curl/nc on the port |
 | `expose` fails: `deployments.apps "x" not found` | Deployment not created yet | Apply it first, or use `kubectl create service` |
 
 ---

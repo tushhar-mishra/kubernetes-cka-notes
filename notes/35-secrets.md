@@ -179,7 +179,7 @@ resources:
 - Existing Secrets stay unencrypted until **rewritten**: `kubectl get secrets -A -o json | kubectl replace -f -`.
 - Verify by reading etcd directly: an encrypted value starts with `k8s:enc:aescbc:v1:key1:` instead of readable text.
 - **Better:** the **`kms` v2** provider. The data-encryption keys are wrapped by a key in a cloud KMS or HSM (AWS KMS, Azure Key Vault, GCP KMS, Vault), so the master key never sits in a file on the control plane. Managed clusters (EKS, GKE, AKS) offer KMS envelope encryption as an option, and some enable it by default.
-- `aesgcm` and `secretbox` also exist; `aescbc` is the classic CKA example (`secretbox` or `kms` are preferred for new setups).
+- `aesgcm` and `secretbox` also exist; `aescbc` is the classic CKA example, but the upstream docs **discourage** it (weak against padding-oracle-style attacks and it needs manual key rotation). For real clusters use **KMS v2** with an external key manager, or `secretbox` if you can't run a KMS plugin.
 
 ### Production secret management
 

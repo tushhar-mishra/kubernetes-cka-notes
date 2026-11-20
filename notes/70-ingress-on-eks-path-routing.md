@@ -226,10 +226,10 @@ metadata:
   name: aws-load-balancer-controller
   namespace: kube-system
   annotations:
-    eks.amazonaws.com/role-arn: arn:aws:iam::261358761470:role/eksctl-cwvj-ingress-demo-addon-iamserviceacco-Role1-Llblca1iSsNh
+    eks.amazonaws.com/role-arn: arn:aws:iam::<YOUR_ACCOUNT_ID>:role/<ROLE_NAME_CREATED_BY_EKSCTL>
 ```
 
-The annotation lets the controller Pods **assume the IAM role** (the EKS Pod Identity webhook injects `AWS_ROLE_ARN` and a projected token with audience `sts.amazonaws.com`). (Day 50's account ID `261358761470` is the author's; use yours: `aws sts get-caller-identity`.)
+The annotation lets the controller Pods **assume the IAM role** (the EKS Pod Identity webhook injects `AWS_ROLE_ARN` and a projected token with audience `sts.amazonaws.com`). (Use your own account ID, from `aws sts get-caller-identity`, and the role name `eksctl` printed.)
 
 **2.3 Helm install**
 

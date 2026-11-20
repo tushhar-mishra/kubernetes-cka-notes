@@ -127,7 +127,7 @@ Without `tolerationSeconds`, a matching `NoExecute` toleration means "**stay for
 | `node.cloudprovider.kubernetes.io/uninitialized` | Until the cloud controller initialises the node | `NoSchedule` |
 | `node.kubernetes.io/out-of-service` | **You**, on a node that's definitely dead (non-graceful shutdown; topic 40) | `NoExecute` |
 
-**How node failure evicts Pods:** the `DefaultTolerationSeconds` admission plugin gives every Pod tolerations for `not-ready` and `unreachable` with **`tolerationSeconds: 300`**. So when a node dies: about 40 s later the node becomes `Unknown` and gets the `unreachable:NoExecute` taint; **5 minutes** after that, its Pods are evicted and controllers recreate them elsewhere. Lower `tolerationSeconds` in critical apps for faster failover. (DaemonSet Pods tolerate these taints without a time limit, so they're never evicted for them.)
+**How node failure evicts Pods:** the `DefaultTolerationSeconds` admission plugin gives every Pod tolerations for `not-ready` and `unreachable` with **`tolerationSeconds: 300`**. So when a node dies: about 50 s later (`node-monitor-grace-period`, 40 s before v1.32) the node becomes `Unknown` and gets the `unreachable:NoExecute` taint; **5 minutes** after that, its Pods are evicted and controllers recreate them elsewhere. Lower `tolerationSeconds` in critical apps for faster failover. (DaemonSet Pods tolerate these taints without a time limit, so they're never evicted for them.)
 
 ---
 
@@ -342,7 +342,7 @@ Combining **taints, tolerations, node affinity and anti-affinity** enforces thes
 2. `NoExecute` in action: run a Deployment with 4 replicas, then `kubectl taint nodes lab-worker maint=yes:NoExecute`; watch its Pods on `lab-worker` get evicted and recreated on `lab-worker2`. Remove the taint.
 3. `tolerationSeconds`: give a Pod a toleration for `maint=yes:NoExecute` with `tolerationSeconds: 30`, taint its node, and time the eviction.
 4. Cordon: `kubectl cordon lab-worker2`, then `kubectl describe node lab-worker2 | grep Taints` (`node.kubernetes.io/unschedulable:NoSchedule`). Uncordon.
-5. Simulate a node failure: `docker stop lab-worker2`. Watch `kubectl get nodes` (NotReady after ~40 s), the `unreachable` taint appear, and the Pods evicted after ~5 minutes. `docker start lab-worker2`.
+5. Simulate a node failure: `docker stop lab-worker2`. Watch `kubectl get nodes` (NotReady after ~50 s), the `unreachable` taint appear, and the Pods evicted after ~5 minutes. `docker start lab-worker2`.
 6. Prove "tolerations don't attract": taint `lab-worker` with `color=green:NoSchedule`, deploy 10 replicas tolerating it, and count Pods per node: spread over both workers.
 
 ---
@@ -384,7 +384,7 @@ Combining **taints, tolerations, node affinity and anti-affinity** enforces thes
 2. **Q: If a Pod tolerates a node's taint, will it be scheduled there?**
    A: Not necessarily: a toleration only allows it. To steer the Pod onto those nodes, also use node affinity or a nodeSelector.
 3. **Q: How long until Pods move off a node that suddenly dies, and why?**
-   A: Roughly 40 s for the node to be marked unreachable plus the default 300 s `tolerationSeconds` on the `unreachable:NoExecute` taint, then controllers recreate the Pods elsewhere.
+   A: Roughly 50 s (the `node-monitor-grace-period` default since v1.32) for the node to be marked unreachable plus the default 300 s `tolerationSeconds` on the `unreachable:NoExecute` taint, then controllers recreate the Pods elsewhere.
 
 ---
 

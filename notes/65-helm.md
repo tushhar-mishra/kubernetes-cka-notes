@@ -122,7 +122,7 @@ helm version
 version.BuildInfo{Version:"v3.18.3", GitCommit:"6838ebcf…", GitTreeState:"clean", GoVersion:"go1.24.4"}
 ```
 
-(**Helm 4** was released in **November 2025**. The commands in this topic work the same in Helm 3 and 4. Helm 4 uses **server-side apply by default for new releases** (upgrades keep the previous release's apply method) and has a new plugin system. **Helm 3 reaches end of life in February 2027**, so plan to move to Helm 4.)
+(**Helm 4** was released in **November 2025**. The commands in this topic work the same in Helm 3 and 4. Helm 4 uses **server-side apply by default for new releases** (upgrades keep the previous release's apply method) and has a new plugin system. **Helm 3 reaches end of life in February 2027** (⚠️ *verify against the Helm project's version-support policy*), so plan to move to Helm 4.)
 
 - **Helm 2** needed **Tiller**, an in-cluster server component with broad permissions (a security problem). **Helm 3+ has no Tiller**: the `helm` CLI talks to the API server directly, like kubectl.
 - **Which cluster?** Helm uses your **current kubeconfig context** (topic 12), like kubectl. Override with `--kube-context` / `--kubeconfig` / `-n`.

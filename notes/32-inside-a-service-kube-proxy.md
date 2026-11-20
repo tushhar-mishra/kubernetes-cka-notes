@@ -103,7 +103,7 @@ Check the mode: `kubectl -n kube-system get cm kube-proxy -o yaml | grep mode` (
 
 ### The iptables path, step by step (ClusterIP)
 
-A client Pod `10.244.1.5` sends to `backend-svc` → `10.96.26.155:9090`:
+A client Pod `10.244.1.5` sends to `backend-svc` → `10.96.26.155:9090`. (Traffic from the **node itself**, such as a `hostNetwork` Pod or `curl` on the node, enters through **nat OUTPUT → KUBE-SERVICES** instead of PREROUTING, and is then marked for masquerade in POSTROUTING; the rest of the walk is the same.)
 
 ```
 1. nat PREROUTING  → KUBE-SERVICES

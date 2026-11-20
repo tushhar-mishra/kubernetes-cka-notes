@@ -178,7 +178,7 @@ spec:
     type: RollingUpdate           # default: replace Pods in REVERSE order, one at a time, waiting for Ready
     rollingUpdate:
       partition: 2                # only Pods with ordinal >= 2 are updated → canary on mysql-2
-      # maxUnavailable: 1         # (beta) update several at once
+      # maxUnavailable: 1         # (beta ⚠️ verify the stage for your version) update several at once
   # type: OnDelete                # the controller updates a Pod only when YOU delete it (manual, careful DB upgrades)
   persistentVolumeClaimRetentionPolicy:   # GA since v1.32
     whenDeleted: Retain           # StatefulSet deleted → keep PVCs (default) or Delete them
@@ -276,7 +276,7 @@ kind: ClusterConfig
 metadata:
   name: cwvj-eks-cluster
   region: us-east-2
-  tags: { owner: varun-joshi, bu: cwvj, environment: prod, project: statefulsets-training }
+  tags: { owner: <your-name>, bu: <your-team>, environment: prod, project: statefulsets-training }
 availabilityZones: [us-east-2a, us-east-2b, us-east-2c]
 iam:
   withOIDC: true                 # IAM OIDC provider (needed for IRSA, topic 70)

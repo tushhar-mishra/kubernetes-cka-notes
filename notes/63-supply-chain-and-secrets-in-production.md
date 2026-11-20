@@ -122,13 +122,13 @@ apiVersion: kyverno.io/v1
 kind: ClusterPolicy
 metadata: { name: verify-signed-images }
 spec:
-  validationFailureAction: Enforce
   webhookTimeoutSeconds: 15
   rules:
   - name: check-signature
     match: { any: [ { resources: { kinds: ["Pod"] } } ] }
     verifyImages:
     - imageReferences: ["registry.example.com/*"]
+      failureAction: Enforce                # per-rule; spec.validationFailureAction is deprecated
       mutateDigest: true                    # pin the tag to the verified digest
       attestors:
       - entries:
